@@ -11,6 +11,8 @@
 		1781761E2C7B6F79006BB3BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781761D2C7B6F79006BB3BF /* ContentView.swift */; };
 		178176202C7B6F7B006BB3BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1781761F2C7B6F7B006BB3BF /* Assets.xcassets */; };
 		178176232C7B6F7B006BB3BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 178176222C7B6F7B006BB3BF /* Preview Assets.xcassets */; };
+		1781762B2C7B73C4006BB3BF /* example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781762A2C7B73C4006BB3BF /* example.swift */; };
+		1781762D2C7B843A006BB3BF /* example2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781762C2C7B843A006BB3BF /* example2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		1781761D2C7B6F79006BB3BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1781761F2C7B6F7B006BB3BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		178176222C7B6F7B006BB3BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1781762A2C7B73C4006BB3BF /* example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = example.swift; sourceTree = "<group>"; };
+		1781762C2C7B843A006BB3BF /* example2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = example2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 		1781760F2C7B6F79006BB3BF = {
 			isa = PBXGroup;
 			children = (
+				178176292C7B7342006BB3BF /* example */,
 				1781761A2C7B6F79006BB3BF /* GuessTheFlag */,
 				178176192C7B6F79006BB3BF /* Products */,
 			);
@@ -65,6 +70,15 @@
 				178176222C7B6F7B006BB3BF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		178176292C7B7342006BB3BF /* example */ = {
+			isa = PBXGroup;
+			children = (
+				1781762A2C7B73C4006BB3BF /* example.swift */,
+				1781762C2C7B843A006BB3BF /* example2.swift */,
+			);
+			path = example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +153,8 @@
 			files = (
 				1781761E2C7B6F79006BB3BF /* ContentView.swift in Sources */,
 				1781761C2C7B6F79006BB3BF /* GuessTheFlagApp.swift in Sources */,
+				1781762B2C7B73C4006BB3BF /* example.swift in Sources */,
+				1781762D2C7B843A006BB3BF /* example2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
