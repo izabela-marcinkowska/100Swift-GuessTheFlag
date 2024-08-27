@@ -20,15 +20,16 @@ struct ContentView: View {
     var body: some View {
         ZStack{
             RadialGradient(stops: [
-                .init(color: Color(red:0.1, green: 0.2, blue: 0.45), location: 0.3),
-                .init(color: Color(red: 0.76, green: 0.15, blue: 0.26), location: 0.3),
+                .init(color: Color(red: 1.0, green: 0.8, blue: 0.788), location: 0.3),
+                .init(color: Color(red: 1.0, green: 0.337, blue: 0.4), location: 0.3),
             ], center: .top, startRadius: 200, endRadius: 700)
             .ignoresSafeArea()
             VStack{
                 Spacer()
                 Text("Guess the Flag")
                     .font(.largeTitle.weight(.bold))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(Color(red: 1.0, green: 0.337, blue: 0.4))
+                Spacer()
                 VStack (spacing: 15 ){
                     VStack (spacing: 15) {
                         Text("Tap the flag of")
@@ -51,15 +52,16 @@ struct ContentView: View {
                 .padding(.vertical, 20)
                 .background(.regularMaterial)
                 .clipShape(.rect(cornerRadius: 20))
+                .shadow(radius: 15)
                 Spacer()
-                Spacer()
-                Text("Score: \(score)")
-                    .foregroundStyle(.white)
-                    .font(.title.bold())
-                Text("Round: \(round)")
-                    .foregroundStyle(.white)
-                    .font(.title.bold())
-                Spacer()
+                VStack (spacing: 10){
+                    Text("Score: \(score)")
+                        .foregroundStyle(.white)
+                        .font(.title.bold())
+                    Text("Round: \(round)")
+                        .foregroundStyle(.white)
+                        .font(.title.bold())
+                }
             }.padding()
         }.alert(scoreTitle, isPresented: $showingScore) {
             Button("Continue", action: askQuestion)
