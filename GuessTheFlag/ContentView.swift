@@ -7,6 +7,20 @@
 
 import SwiftUI
 
+extension View {
+    func goBlue() -> some View {
+        modifier(BlueText())
+    }
+}
+
+struct BlueText: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundStyle(.blue)
+    }
+}
+
 struct ContentView: View {
     @State private var showingScore = false
     @State private var showingEndGame = false
@@ -16,6 +30,8 @@ struct ContentView: View {
     @State private var score = 0
     @State private var round = 1
     var endGameTitle = "Game is over."
+    
+
     
     var body: some View {
         ZStack{
@@ -33,7 +49,7 @@ struct ContentView: View {
                 VStack (spacing: 15 ){
                     VStack (spacing: 15) {
                         Text("Tap the flag of")
-                            .foregroundStyle(.secondary)
+                            .goBlue()
                             .font(.subheadline.weight(.heavy))
                         Text(countries[correctAnswer])
                             .font(.largeTitle.weight(.semibold))
@@ -97,6 +113,12 @@ struct ContentView: View {
         round = 0
         askQuestion()
     }
+    
+    
+    
+
+    
+  
     
     struct FlagImage: View {
         var picture: String
