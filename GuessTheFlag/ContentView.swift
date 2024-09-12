@@ -29,6 +29,9 @@ struct ContentView: View {
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
     @State private var score = 0
     @State private var round = 1
+    
+    @State private var animationAmount = 0.0
+    @State private var selected = 0
     var endGameTitle = "Game is over."
     
 
@@ -57,10 +60,16 @@ struct ContentView: View {
                     ForEach(0..<3) { number in
                         Button {
                             flagTapped(number)
+                            withAnimation {
+                                    animationAmount += 360
+                            }
                         } label: {
                             FlagImage(picture: countries[number])
                         }
+                        .rotation3DEffect(.degrees((number == selected ? animationAmount : 0.0)), axis: (x: 0, y: 1, z: 0))
                     }
+                    
+                    
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 20)
@@ -89,6 +98,7 @@ struct ContentView: View {
     }
     
     func flagTapped (_ number: Int) {
+        selected = number
         if round == 7 {
             showingEndGame = true
         }
