@@ -31,10 +31,11 @@ struct ContentView: View {
     @State private var round = 1
     
     @State private var animationAmount = 0.0
-    @State private var selected = 0
+    @State private var selected = 100
+    @State private var opacity = 1.0
     var endGameTitle = "Game is over."
     
-
+    
     
     var body: some View {
         ZStack{
@@ -61,12 +62,14 @@ struct ContentView: View {
                         Button {
                             flagTapped(number)
                             withAnimation {
-                                    animationAmount += 360
+                                animationAmount += 360
+                                opacity = 0.5
                             }
                         } label: {
                             FlagImage(picture: countries[number])
                         }
                         .rotation3DEffect(.degrees((number == selected ? animationAmount : 0.0)), axis: (x: 0, y: 1, z: 0))
+                        .opacity(number != selected ? opacity : 1)
                     }
                     
                     
@@ -116,6 +119,8 @@ struct ContentView: View {
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        selected = 100
+        opacity = 1
     }
     
     func gameOver() {
@@ -126,9 +131,9 @@ struct ContentView: View {
     
     
     
-
     
-  
+    
+    
     
     struct FlagImage: View {
         var picture: String
