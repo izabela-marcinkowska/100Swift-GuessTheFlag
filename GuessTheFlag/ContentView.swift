@@ -29,12 +29,12 @@ struct ContentView: View {
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
     @State private var score = 0
     @State private var round = 1
+    @State private var scaleAmount = 1.0
     
     @State private var animationAmount = 0.0
     @State private var selected = 100
     @State private var opacity = 1.0
     var endGameTitle = "Game is over."
-    
     
     
     var body: some View {
@@ -63,16 +63,16 @@ struct ContentView: View {
                             flagTapped(number)
                             withAnimation {
                                 animationAmount += 360
-                                opacity = 0.5
+                                opacity = 0.25
+                                scaleAmount = 0.5
                             }
                         } label: {
                             FlagImage(picture: countries[number])
                         }
                         .rotation3DEffect(.degrees((number == selected ? animationAmount : 0.0)), axis: (x: 0, y: 1, z: 0))
                         .opacity(number != selected ? opacity : 1)
+                        .scaleEffect(number != selected ? scaleAmount : 1)
                     }
-                    
-                    
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 20)
@@ -121,6 +121,7 @@ struct ContentView: View {
         correctAnswer = Int.random(in: 0...2)
         selected = 100
         opacity = 1
+        scaleAmount = 1
     }
     
     func gameOver() {
@@ -128,12 +129,6 @@ struct ContentView: View {
         round = 0
         askQuestion()
     }
-    
-    
-    
-    
-    
-    
     
     struct FlagImage: View {
         var picture: String
